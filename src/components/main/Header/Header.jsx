@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
-import OfferHead from "../../Offers/OfferHead";
+import OfferHead from "../../offers/OfferHead";
 import Logo from "../../../assets/Header/SHOP-CO.svg";
 import Dropdown from "../../../assets/Header/Dropdown.svg";
 import ProfileImage from "../../../assets/Header/Profile.svg";
 import CartImage from "../../../assets/Header/Cart.svg";
+import ProfileDropdown from "./ProfileDropdown";
+import ShopDropdown from "./ShopDropdown";
 
 const Header = () => {
   const [showInput, setShowInput] = useState(false);
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [showShopDropdown, setShowShopDropdown] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,6 +30,16 @@ const Header = () => {
 
   const inputToggler = () => {
     setShowInput((prev) => !prev);
+    setShowProfileDropdown(false);
+    setShowShopDropdown(false);
+  };
+
+  const ProfileDrop = () => {
+    setShowProfileDropdown((prev) => !prev);
+  };
+
+  const ShopDrop = () => {
+    setShowShopDropdown((prev) => !prev);
   };
 
   return (
@@ -49,33 +63,47 @@ const Header = () => {
           <div className="lg:flex hidden gap-6 max-[1129px]:w-[38%] min-[1130px]:w-[34%] xl:w-auto min-[1400px]:w-[30%] min-[1600px]:w-[28%]">
             <a
               href="#"
-              className="text-[16px] font-normal font-poppins text-[#000000] flex gap-1.5 items-center"
+              className="text-[16px] font-normal font-poppins hover:opacity-75 text-[#000000] flex gap-1.5 items-center"
+              onClick={ShopDrop}
             >
               Shop{" "}
               <img
                 src={Dropdown}
                 alt="Dropdown-Image"
-                className="w-[11.5px] h-[6.5px]"
+                className={`w-[11.5px] h-[6.5px] ${
+                  showShopDropdown
+                    ? "rotate-180 transition-all duration-500"
+                    : "transition-all duration-500"
+                }`}
               />
             </a>
             <a
               href="#"
-              className="text-[16px] font-normal font-poppins text-[#000000]"
+              className="text-[16px] font-normal font-poppins hover:opacity-75 text-[#000000]"
             >
               On Sale
             </a>
             <a
               href="#"
-              className="text-[16px] font-normal font-poppins text-[#000000]"
+              className="text-[16px] font-normal font-poppins hover:opacity-75 text-[#000000]"
             >
               New Arrivals
             </a>
             <a
               href="#"
-              className="text-[16px] font-normal font-poppins text-[#000000]"
+              className="text-[16px] font-normal font-poppins hover:opacity-75 text-[#000000]"
             >
               Brands
             </a>
+            <div
+              className={`absolute mt-9 transition-all duration-300 ease-in-out ${
+                showShopDropdown
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-[-10px] pointer-events-none"
+              }`}
+            >
+              <div>{showShopDropdown ? <ShopDropdown /> : ""}</div>
+            </div>
           </div>
           <div className="lg:flex hidden gap-2.5 py-3 px-4 bg-[#F0F0F0] rounded-[62px] max-[1129px]::w-[30%] min-[1130px]:w-[36%] xl:w-[44%] w-[30%]">
             <svg
@@ -147,9 +175,25 @@ const Header = () => {
               } gap-4`}
             >
               <img src={CartImage} alt="" className="w-[24px] h-[24px]" />
-              <img src={ProfileImage} alt="" className="w-[24px] h-[24px]" />
+              <img
+                src={ProfileImage}
+                alt=""
+                className="w-[24px] h-[24px] cursor-pointer"
+                onClick={ProfileDrop}
+              />
             </div>
           </div>
+        </div>
+        <div
+          className={`xl:w-[84%] w-[90%] absolute lg:mt-14 transition-all duration-300 ease-in-out flex justify-end ${
+            showInput ? "mt-14" : "mt-[2.7rem]"
+          } ${
+            showProfileDropdown
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-[-10px] pointer-events-none"
+          }`}
+        >
+          <div>{showProfileDropdown ? <ProfileDropdown /> : ""}</div>
         </div>
       </div>
     </div>
