@@ -55,9 +55,3 @@
   transition-duration: 0.3s;
   transform-origin: left center;
 }
-
-@media screen and (max-width: 640px) {
-  .toggle {
-    gap: 8px;
-  }
-}
