@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import OfferHead from "../Offers/OfferHead";
-import Logo from "../../assets/Header/SHOP-CO.svg";
-import Dropdown from "../../assets/Header/Dropdown.svg";
-import ProfileImage from "../../assets/Header/Profile.svg";
-import CartImage from "../../assets/Header/Cart.svg";
+import OfferHead from "../../Offers/OfferHead";
+import Logo from "../../../assets/Header/SHOP-CO.svg";
+import Dropdown from "../../../assets/Header/Dropdown.svg";
+import ProfileImage from "../../../assets/Header/Profile.svg";
+import CartImage from "../../../assets/Header/Cart.svg";
 
 const Header = () => {
   const [showInput, setShowInput] = useState(false);
