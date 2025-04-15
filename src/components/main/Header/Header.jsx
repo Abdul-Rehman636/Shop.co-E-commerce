@@ -6,11 +6,13 @@ import ProfileImage from "../../../assets/Header/Profile.svg";
 import CartImage from "../../../assets/Header/Cart.svg";
 import ProfileDropdown from "./ProfileDropdown";
 import ShopDropdown from "./ShopDropdown";
+import Sidebar from "../Sidebar/Sidebar";
 
 const Header = () => {
   const [showInput, setShowInput] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showShopDropdown, setShowShopDropdown] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -42,6 +44,11 @@ const Header = () => {
     setShowShopDropdown((prev) => !prev);
   };
 
+  const visibleSidebar = () => {
+    setShowSidebar((prev) => !prev);
+    setShowProfileDropdown(false);
+  };
+
   return (
     <div>
       <OfferHead />
@@ -50,7 +57,7 @@ const Header = () => {
           <div className="flex items-center md:gap-8 sm:gap-7 gap-4">
             <div className="lg:hidden block">
               <input type="checkbox" id="checkbox" />
-              <label for="checkbox" class="toggle">
+              <label for="checkbox" class="toggle" onClick={visibleSidebar}>
                 <div class="bars" id="bar1"></div>
                 <div class="bars" id="bar2"></div>
                 <div class="bars" id="bar3"></div>
@@ -168,7 +175,7 @@ const Header = () => {
               )}
             </div>
             <div
-              className={`min-[769px]:flex transition-all duration-500 ${
+              className={`min-[768px]:flex transition-all duration-500 ${
                 showInput
                   ? "max-[768px]:hidden max-[768px]:opacity-0"
                   : "max-[768px]:flex opacity-100"
@@ -196,6 +203,7 @@ const Header = () => {
           <div>{showProfileDropdown ? <ProfileDropdown /> : ""}</div>
         </div>
       </div>
+      <div>{showSidebar ? <Sidebar /> : ""}</div>
     </div>
   );
 };
