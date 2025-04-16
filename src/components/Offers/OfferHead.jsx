@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Cross from "../../assets/Offer-Head/Cross.svg";
+import Cross from "../../assets/images/Offer-Head/Cross.svg";
 
 const OfferHead = () => {
   const [showOffer, setShowOffer] = useState(true);
@@ -24,7 +24,7 @@ const OfferHead = () => {
               className="lg:flex hidden justify-end absolute xl:w-[84%] w-[90%] mx-auto top-1/2 transform -translate-y-1/2 hover:opacity-80 cursor-pointer"
               onClick={() => setShowOffer(false)}
             >
-              <img src={Cross} alt="close offer banner" />
+              <img src={Cross} alt="close-offer" />
             </button>
           </div>
         </>

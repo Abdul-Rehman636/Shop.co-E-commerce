@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Dropdown from "../../../assets/Header/Dropdown.svg";
+import Dropdown from "../../../assets/images/Header/Dropdown.svg";
 
 const Sidebar = () => {
   const [showShopDropdown, setShowShopDropdown] = useState(false);

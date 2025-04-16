@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import OfferHead from "../../offers/OfferHead";
-import Logo from "../../../assets/Header/SHOP-CO.svg";
-import Dropdown from "../../../assets/Header/Dropdown.svg";
-import ProfileImage from "../../../assets/Header/Profile.svg";
-import CartImage from "../../../assets/Header/Cart.svg";
+import Logo from "../../../assets/images/Header/SHOP-CO.svg";
+import Dropdown from "../../../assets/images/Header/Dropdown.svg";
+import ProfileImage from "../../../assets/images/Header/Profile.svg";
+import CartImage from "../../../assets/images/Header/Cart.svg";
 import ProfileDropdown from "./ProfileDropdown";
 import ShopDropdown from "./ShopDropdown";
 import Sidebar from "../Sidebar/Sidebar";
@@ -181,10 +181,14 @@ const Header = () => {
                   : "max-[768px]:flex opacity-100"
               } gap-4`}
             >
-              <img src={CartImage} alt="" className="w-[24px] h-[24px]" />
+              <img
+                src={CartImage}
+                alt="Cart-Image"
+                className="w-[24px] h-[24px]"
+              />
               <img
                 src={ProfileImage}
-                alt=""
+                alt="Profile-Image"
                 className="w-[24px] h-[24px] cursor-pointer"
                 onClick={ProfileDrop}
               />
