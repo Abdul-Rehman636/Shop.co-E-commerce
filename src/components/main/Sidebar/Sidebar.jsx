@@ -9,7 +9,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="flex lg:hidden justify-center h-[84.9vh] w-full bg-[#F2F0F1] py-4 rounded-[4px]">
+    <div className="absolute flex lg:hidden justify-center h-[84.9vh] w-full bg-[#F2F0F1] py-4 rounded-[4px]">
       <div className="w-[90%] flex flex-col md:gap-2 gap-1.5">
         <a
           href="#"
